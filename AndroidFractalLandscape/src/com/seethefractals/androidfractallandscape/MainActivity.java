@@ -27,20 +27,14 @@ public class MainActivity extends Activity
 					// Test01: 
 					// New landscape, 10x10 array of 0.0f values
 					// Centered at 0f,0f
-					FractalLandscape fl = new FractalLandscape(10);
-					boolean bTest01 = true;
+					FractalLandscape fl = 
+						new FractalLandscape(10,0f,0f,0f,1f);
 					for(int i=0; i<10; i++) {
 						for(int j=0;j<10;j++) {
-							if(fl.getHeightAtIndex(i,j)!=0.0f) {
-								bTest01 = false;
-							}
+							sb.append(fl.getHeightAtIndex(i,j) + " ");
 						}
+						sb.append(System.lineSeparator());
 					}
-					float[] centerXY = fl.getCenterXY();
-					if((centerXY[0]!=0.0f)||(centerXY[1]!=0.0f)) {
-						bTest01 = false;
-					}
-					sb.append("Test01: " + bTest01);
 					updateText(sb);
 					
 				}

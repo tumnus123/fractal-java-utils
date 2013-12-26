@@ -6,36 +6,50 @@ public class FractalLandscape
 	public float[][] flArray;
 	private float spacing;
 	private float mag;
-	private float[] centerXY;
+	private float centerX;
+	private float centerY;
 
-	public FractalLandscape(int iSize) {
+	public FractalLandscape(int iSize, float ctrX, float ctrY, float mag, float spacing) {
 		flArray = new float[iSize][iSize];
 		flSize = iSize;
 		init();
-		centerXY = new float[] {0.0f,0.0f};
+		centerX = ctrX;
+		centerY = ctrY;
+		this.mag = mag;
+		this.spacing = spacing;
+		render();
 	}
 
-	public void setCenterXY(float[] centerXY)
+	private void render()
 	{
-		this.centerXY = centerXY;
+		for(int i=0; i<flSize; i++) {
+			for(int j=0;j<flSize;j++) {
+				// determine multipliers
+				int xMult = (flSize / 2) - i;
+				int yMult = (flSize / 2) - j;
+				flArray[i][j] = calcHeight(centerX + (spacing*xMult), centerY+ (spacing*yMult));
+			}
+		}
+		
 	}
 
-	public float[] getCenterXY()
+	private float calcHeight(float x, float y)
 	{
-		return centerXY;
+		// TODO: Replace with Mset calc
+		return x+y;
 	}
 
-	public void setFlMag(float flMag)
+	public void setMag(float mag)
 	{
-		this.mag = flMag;
+		this.mag = mag;
 	}
 
-	public float getFlMag()
+	public float getMag()
 	{
 		return mag;
 	}
 
-	public float getFlSpacing()
+	public float getSpacing()
 	{
 		return spacing;
 	}
@@ -52,12 +66,7 @@ public class FractalLandscape
 		return flArray[i][j];
 	}
 	
-	public void setFlSize(int flSize)
-	{
-		this.flSize = flSize;
-	}
-
-	public int getFlSize()
+	public int getSize()
 	{
 		return flSize;
 	}	

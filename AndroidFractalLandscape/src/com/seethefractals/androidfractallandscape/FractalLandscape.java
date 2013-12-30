@@ -1,16 +1,18 @@
 package com.seethefractals.androidfractallandscape;
+import android.graphics.*;
 
 public class FractalLandscape
 {
 	public int flSize;
-	public float[][] flArray;
+	public int[][] flArray;
 	private float spacing;
 	private float mag;
 	private float centerX;
 	private float centerY;
 
 	public FractalLandscape(int iSize, float ctrX, float ctrY, float mag, float spacing) {
-		flArray = new float[iSize][iSize];
+		if(iSize%2==0) {iSize--;}
+		flArray = new int[iSize][iSize];
 		flSize = iSize;
 		init();
 		centerX = ctrX;
@@ -33,10 +35,10 @@ public class FractalLandscape
 		
 	}
 
-	private float calcHeight(float x, float y)
+	private int calcHeight(float x, float y)
 	{
 		// TODO: Replace with Mset calc
-		return x+y;
+		return Color.WHITE;
 	}
 
 	public void setMag(float mag)
@@ -57,12 +59,12 @@ public class FractalLandscape
 	public void init() {
 		for(int i=0; i<flSize; i++) {
 			for(int j=0;j<flSize;j++) {
-				flArray[i][j] = 0.0f;
+				flArray[i][j] = 0;
 			}
 		}
 	}
 	
-	public float getHeightAtIndex(int i, int j) {
+	public int getHeightAtIndex(int i, int j) {
 		return flArray[i][j];
 	}
 	

@@ -5,7 +5,9 @@
     android:gravity="center"
     android:orientation="vertical" >
 
-    <EditText
+
+
+<!--    <EditText
 		android:id="@+id/etTestResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,5 +18,5 @@
 		android:layout_height="100dip"
 		android:text="Run Tests"
 	/>
-
+-->
 </LinearLayout>

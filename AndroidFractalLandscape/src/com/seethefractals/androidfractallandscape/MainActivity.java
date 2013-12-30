@@ -13,11 +13,11 @@ public class MainActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
 	{
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+		setContentView(new FractalSurfaceView(this, new FractalLandscape(101,0f,0f,0f,0f)));
 		
+/*        setContentView(R.layout.main);
 		Button btnRunTests = (Button) findViewById(R.id.btnRunTests);
 		btnRunTests.setOnClickListener(new OnClickListener() {
-
 				@Override
 				public void onClick(View p1)
 				{
@@ -40,11 +40,11 @@ public class MainActivity extends Activity
 				}
 	
 		});
-		
+*/		
     }
 	public void updateText(StringBuilder sb) {
-		EditText et = (EditText) findViewById(R.id.etTestResults);
-		et.setText(sb.toString());
+		//EditText et = (EditText) findViewById(R.id.etTestResults);
+		//et.setText(sb.toString());
 	}
 	
 	public void showToast(String msg) {

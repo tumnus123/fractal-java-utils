@@ -1,4 +1,4 @@
-package fractals;
+package fractal;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;
@@ -80,6 +80,9 @@ public class MandelWorldEroded extends Applet {
 	}
 
 	public BranchGroup createSceneGraph(SimpleUniverse su) {
+
+		// NEW! Try working with an AL of ALs
+		MyALofALs myALofALs = new MyALofALs(10);
 
 		float[][] hf = getHeightField2();
 		// The height field
